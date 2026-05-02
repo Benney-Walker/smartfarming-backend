@@ -76,7 +76,7 @@ public class MqttService {
 
         Alerts alert = mapper.readValue(payload, Alerts.class);
 
-        notificationService.sendSensorAlertMessage(alert);
+        notificationService.sensorNotRespondingMessage(alert);
     }
 
     private void handleFeedback(String topic, MqttMessage message) {
