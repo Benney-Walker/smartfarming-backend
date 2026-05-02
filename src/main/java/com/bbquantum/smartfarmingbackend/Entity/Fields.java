@@ -27,26 +27,18 @@ public class Fields {
     @JoinColumn(name = "User_field")
     private Users user;
 
-    @OneToMany(mappedBy = "field")
-    private List<RawSensorData> rawData;
-
-    @OneToMany(mappedBy = "field")
-    private List<ModelDecisions> decisions;
-
     @Enumerated(EnumType.STRING)
     private FieldStatus fieldStatus;
 
     public Fields() {}
 
-    public Fields(String fieldId, String fieldName, String fieldLocation, String fieldSize, LocalDateTime dateOfRegistration, Users user, List<RawSensorData> rawData, List<ModelDecisions> decisions, FieldStatus fieldStatus) {
+    public Fields(String fieldId, String fieldName, String fieldLocation, String fieldSize, LocalDateTime dateOfRegistration, Users user, FieldStatus fieldStatus) {
         this.fieldId = fieldId;
         this.fieldName = fieldName;
         this.fieldLocation = fieldLocation;
         this.fieldSize = fieldSize;
         this.dateOfRegistration = dateOfRegistration;
         this.user = user;
-        this.rawData = rawData;
-        this.decisions = decisions;
         this.fieldStatus = fieldStatus;
     }
 
@@ -72,14 +64,6 @@ public class Fields {
 
     public Users getUser() {
         return user;
-    }
-
-    public List<RawSensorData> getRawData() {
-        return rawData;
-    }
-
-    public List<ModelDecisions> getDecisions() {
-        return decisions;
     }
 
     public FieldStatus getFieldStatus() {
