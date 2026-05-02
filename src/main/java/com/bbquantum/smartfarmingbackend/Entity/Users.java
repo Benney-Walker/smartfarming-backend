@@ -53,35 +53,71 @@ public class Users {
         return userId;
     }
 
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     public String getUserName() {
         return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmailAddress() {
         return emailAddress;
     }
 
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getPassword() {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public LocalDateTime getDateOfRegistration() {
         return dateOfRegistration;
+    }
+
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
+        this.dateOfRegistration = dateOfRegistration;
     }
 
     public List<UserRoles> getUserRoles() {
         return userRoles;
     }
 
+    public void setUserRoles(List<UserRoles> userRoles) {
+        this.userRoles = userRoles;
+    }
+
     public List<Fields> getFields() {
         return fields;
     }
 
+    public void setFields(List<Fields> fields) {
+        this.fields = fields;
+    }
+
     public UserStatus getUserStatus() {
         return userStatus;
+    }
+
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
     }
 }
