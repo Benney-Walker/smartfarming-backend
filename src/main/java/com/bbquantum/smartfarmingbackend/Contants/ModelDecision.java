@@ -1,6 +1,6 @@
 package com.bbquantum.smartfarmingbackend.Contants;
 
-public enum Actions {
+public enum ModelDecision {
     IRRIGATE,
     NO_IRRIGATION,
     DELAY
