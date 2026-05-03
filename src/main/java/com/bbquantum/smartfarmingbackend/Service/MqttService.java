@@ -26,6 +26,8 @@ public class MqttService {
     @Autowired
     private DecisionAndActionService dAService;
 
+    private MqttClient client;
+
     private static final String BROKER = "tcp://shuttle.proxy.rlwy.net:47897";
     private static final String SENSOR_TOPIC = "smartfarm/sensors";
     private static final String ALERT_TOPIC = "smartfarm/alert";
@@ -35,7 +37,7 @@ public class MqttService {
     @PostConstruct
     public void init() {
         try {
-            MqttClient client = new MqttClient(
+            client = new MqttClient(
                     BROKER, MqttClient.generateClientId(), new MemoryPersistence()
             );
 
@@ -86,5 +88,22 @@ public class MqttService {
         ActionFeedBack feedBack = mapper.readValue(payload, ActionFeedBack.class);
 
         dAService.updateActionDetails(feedBack);
+    }
+
+    //Sends irrigation commands to ESP32
+    public void sendCommand(Object commandObj) {
+        try {
+            String json = mapper.writeValueAsString(commandObj);
+
+            MqttMessage message = new MqttMessage(json.getBytes());
+            message.setQos(1);
+
+            client.publish(COMMAND_TOPIC, message);
+
+            System.out.println("🚀 Command sent: " + json);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
