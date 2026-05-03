@@ -4,18 +4,22 @@ public class IrrigationAction {
 
     private String actionId;
 
-    private String actionData;
+    private int waterQuantity;
 
-    public IrrigationAction(String actionId, String actionData) {
+    public IrrigationAction(String actionId, int waterQuantity) {
         this.actionId = actionId;
-        this.actionData = actionData;
+        this.waterQuantity = waterQuantity;
     }
 
     public String getActionId() {
         return actionId;
     }
 
-    public String getActionData() {
-        return actionData;
+    public void setActionId(String actionId) {
+        this.actionId = actionId;
+    }
+
+    public int getWaterQuantity() {
+        return waterQuantity;
     }
 }

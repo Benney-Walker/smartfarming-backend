@@ -2,48 +2,61 @@ package com.bbquantum.smartfarmingbackend.DTO.HybridComDTO;
 
 public class InputResponse {
 
-    private String decision;
+    private String decision; // it can Irrigate, no_irrigation, Delay
 
-    private String duration;
+    private int waterQuantity; // In liters
 
-    private String confidence;
+    private int confidence; // In percentage
 
     private String decisionReason;
 
-    private String timeStamp;
+    private String preparedDataId;
 
-    private PreparedDataHolder inputs;
-
-    public InputResponse(String decision, String duration, String confidence, String decisionReason, String timeStamp, PreparedDataHolder inputs) {
+    public InputResponse(String decision, int waterQuantity, int confidence, String decisionReason, String preparedDataId) {
         this.decision = decision;
-        this.duration = duration;
+        this.waterQuantity = waterQuantity;
         this.confidence = confidence;
         this.decisionReason = decisionReason;
-        this.timeStamp = timeStamp;
-        this.inputs = inputs;
+        this.preparedDataId = preparedDataId;
     }
 
     public String getDecision() {
         return decision;
     }
 
-    public String getDuration() {
-        return duration;
+    public void setDecision(String decision) {
+        this.decision = decision;
     }
 
-    public String getConfidence() {
+    public int getWaterQuantity() {
+        return waterQuantity;
+    }
+
+    public void setWaterQuantity(int waterQuantity) {
+        this.waterQuantity = waterQuantity;
+    }
+
+    public int getConfidence() {
         return confidence;
+    }
+
+    public void setConfidence(int confidence) {
+        this.confidence = confidence;
     }
 
     public String getDecisionReason() {
         return decisionReason;
     }
 
-    public String getTimeStamp() {
-        return timeStamp;
+    public void setDecisionReason(String decisionReason) {
+        this.decisionReason = decisionReason;
     }
 
-    public PreparedDataHolder getInputs() {
-        return inputs;
+    public String getPreparedDataId() {
+        return preparedDataId;
+    }
+
+    public void setPreparedDataId(String preparedDataId) {
+        this.preparedDataId = preparedDataId;
     }
 }

@@ -1,7 +1,10 @@
 package com.bbquantum.smartfarmingbackend.Entity;
 
+import com.bbquantum.smartfarmingbackend.Contants.Model;
 import com.bbquantum.smartfarmingbackend.Contants.ModelDecision;
 import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 
 @Entity
 public class ModelResponse {
@@ -13,13 +16,16 @@ public class ModelResponse {
     @Enumerated(EnumType.STRING)
     private ModelDecision decision;
 
-    private String duration;
+    private int waterQuantity;
 
-    private String confidence;
+    private int confidence;
 
     private String decisionReason;
 
-    private String timeStamp;
+    private LocalDateTime timeStamp;
+
+    @Enumerated(EnumType.STRING)
+    private Model model;
 
     @OneToOne
     @JoinColumn
@@ -31,22 +37,18 @@ public class ModelResponse {
 
     public ModelResponse() {}
 
-    public ModelResponse(ModelDecision decision, String duration, String confidence, String decisionReason, String timeStamp, PreparedData preparedData,
-                         IrrigationActions action) {
+    public ModelResponse(ModelDecision decision, int waterQuantity, int confidence, String decisionReason,
+                         LocalDateTime timeStamp, Model model, PreparedData preparedData) {
         this.decision = decision;
-        this.duration = duration;
+        this.waterQuantity = waterQuantity;
+        this.confidence = confidence;
         this.decisionReason = decisionReason;
         this.timeStamp = timeStamp;
         this.preparedData = preparedData;
-        this.action = action;
     }
 
     public int getResponseId() {
         return responseId;
-    }
-
-    public void setResponseId(int responseId) {
-        this.responseId = responseId;
     }
 
     public ModelDecision getDecision() {
@@ -57,19 +59,19 @@ public class ModelResponse {
         this.decision = decision;
     }
 
-    public String getDuration() {
-        return duration;
+    public int getWaterQuantity() {
+        return waterQuantity;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public void setWaterQuantity(int waterQuantity) {
+        this.waterQuantity = waterQuantity;
     }
 
-    public String getConfidence() {
+    public int getConfidence() {
         return confidence;
     }
 
-    public void setConfidence(String confidence) {
+    public void setConfidence(int confidence) {
         this.confidence = confidence;
     }
 
@@ -81,11 +83,11 @@ public class ModelResponse {
         this.decisionReason = decisionReason;
     }
 
-    public String getTimeStamp() {
+    public LocalDateTime getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(String timeStamp) {
+    public void setTimeStamp(LocalDateTime timeStamp) {
         this.timeStamp = timeStamp;
     }
 
@@ -95,6 +97,10 @@ public class ModelResponse {
 
     public void setPreparedData(PreparedData preparedData) {
         this.preparedData = preparedData;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
     }
 
     public IrrigationActions getAction() {

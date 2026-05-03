@@ -11,28 +11,24 @@ public class IrrigationActions {
     @Id
     private String actionId;
 
-    @Column(length = 1000, nullable = false)
-    private String actionData;
+    private int waterQuantity;
 
     private LocalDateTime actionTime;
 
     @Enumerated(EnumType.STRING)
     private ActionStatus actionStatus;
 
-    @Column(length = 1000)
-    private String message;
-
     @OneToOne(mappedBy = "action")
     private ModelResponse modelResponse;
 
     public IrrigationActions() {}
 
-    public IrrigationActions(String actionId, String actionData, LocalDateTime actionTime, ActionStatus actionStatus, String message, ModelResponse modelResponse) {
+    public IrrigationActions(String actionId, int waterQuantity, LocalDateTime actionTime, ActionStatus actionStatus,
+                             ModelResponse modelResponse) {
         this.actionId = actionId;
-        this.actionData = actionData;
+        this.waterQuantity = waterQuantity;
         this.actionTime = actionTime;
         this.actionStatus = actionStatus;
-        this.message = message;
         this.modelResponse = modelResponse;
     }
 
@@ -44,12 +40,12 @@ public class IrrigationActions {
         this.actionId = actionId;
     }
 
-    public String getActionData() {
-        return actionData;
+    public int getWaterQuantity() {
+        return waterQuantity;
     }
 
-    public void setActionData(String actionData) {
-        this.actionData = actionData;
+    public void setWaterQuantity(int waterQuantity) {
+        this.waterQuantity = waterQuantity;
     }
 
     public LocalDateTime getActionTime() {
@@ -66,14 +62,6 @@ public class IrrigationActions {
 
     public void setActionStatus(ActionStatus actionStatus) {
         this.actionStatus = actionStatus;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     public ModelResponse getModelResponse() {
