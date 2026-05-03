@@ -1,20 +1,20 @@
 package com.bbquantum.smartfarmingbackend.DTO.HybridComDTO;
 
 public class PreparedDataHolder {
-    private int preparedDataId;
+    private String preparedDataId;
 
-    private String soilMoisture;
+    private double soilMoisture;
 
-    private String soilTemperature;
+    private double soilTemperature;
 
-    private String humidity;
+    private double humidity;
 
-    private String lightIntensity;
+    private double lightIntensity;
 
-    private String rainProbability;
+    private double rainProbability;
 
-    public PreparedDataHolder(int preparedDataId, String soilMoisture, String soilTemperature, String humidity,
-                              String lightIntensity, String rainProbability) {
+    public PreparedDataHolder(String preparedDataId, double soilMoisture, double soilTemperature, double humidity,
+                              double lightIntensity, double rainProbability) {
         this.preparedDataId = preparedDataId;
         this.soilMoisture = soilMoisture;
         this.soilTemperature = soilTemperature;
@@ -23,47 +23,51 @@ public class PreparedDataHolder {
         this.rainProbability = rainProbability;
     }
 
-    public int getPreparedDataId() {
+    public String getPreparedDataId() {
         return preparedDataId;
     }
 
-    public String getSoilMoisture() {
+    public void setPreparedDataId(String preparedDataId) {
+        this.preparedDataId = preparedDataId;
+    }
+
+    public double getSoilMoisture() {
         return soilMoisture;
     }
 
-    public void setSoilMoisture(String soilMoisture) {
+    public void setSoilMoisture(double soilMoisture) {
         this.soilMoisture = soilMoisture;
     }
 
-    public String getSoilTemperature() {
+    public double getSoilTemperature() {
         return soilTemperature;
     }
 
-    public void setSoilTemperature(String soilTemperature) {
+    public void setSoilTemperature(double soilTemperature) {
         this.soilTemperature = soilTemperature;
     }
 
-    public String getHumidity() {
+    public double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(String humidity) {
+    public void setHumidity(double humidity) {
         this.humidity = humidity;
     }
 
-    public String getLightIntensity() {
+    public double getLightIntensity() {
         return lightIntensity;
     }
 
-    public void setLightIntensity(String lightIntensity) {
+    public void setLightIntensity(double lightIntensity) {
         this.lightIntensity = lightIntensity;
     }
 
-    public String getRainProbability() {
+    public double getRainProbability() {
         return rainProbability;
     }
 
-    public void setRainProbability(String rainProbability) {
+    public void setRainProbability(double rainProbability) {
         this.rainProbability = rainProbability;
     }
 }

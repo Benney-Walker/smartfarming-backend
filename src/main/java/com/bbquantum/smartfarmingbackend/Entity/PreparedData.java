@@ -8,8 +8,7 @@ import java.time.LocalDateTime;
 public class PreparedData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long preparedDataId;
+    private String preparedDataId;
 
     private String soilMoisture;
 
@@ -38,9 +37,10 @@ public class PreparedData {
 
     public PreparedData() {}
 
-    public PreparedData(String soilMoisture, String soilTemperature, String humidity, String lightIntensity,
-                        String rainFallPossibility, LocalDateTime timeProcessed, SensorData sensorData, WeatherData weatherData,
-                        boolean isDecisionMade) {
+    public PreparedData(String preparedDataId, String soilMoisture, String soilTemperature, String humidity,
+                        String lightIntensity, String rainFallPossibility, LocalDateTime timeProcessed,
+                        SensorData sensorData, WeatherData weatherData, boolean isDecisionMade) {
+        this.preparedDataId = preparedDataId;
         this.soilMoisture = soilMoisture;
         this.soilTemperature = soilTemperature;
         this.humidity = humidity;
@@ -52,11 +52,11 @@ public class PreparedData {
         this.isDecisionMade = isDecisionMade;
     }
 
-    public long getPreparedDataId() {
+    public String getPreparedDataId() {
         return preparedDataId;
     }
 
-    public void setPreparedDataId(long preparedDataId) {
+    public void setPreparedDataId(String preparedDataId) {
         this.preparedDataId = preparedDataId;
     }
 
@@ -112,8 +112,8 @@ public class PreparedData {
         return sensorData;
     }
 
-    public void setSensorData(SensorData rawData) {
-        this.sensorData = rawData;
+    public void setSensorData(SensorData sensorData) {
+        this.sensorData = sensorData;
     }
 
     public WeatherData getWeatherData() {
