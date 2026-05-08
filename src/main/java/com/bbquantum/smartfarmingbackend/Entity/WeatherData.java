@@ -15,9 +15,7 @@ public class WeatherData {
 
     private int rainFallProbability;
 
-    private String timeStamp;
-
-    private boolean isProcessed;
+    private LocalDateTime timeStamp;
 
     @OneToOne(mappedBy = "weatherData")
     private PreparedData preparedData;
@@ -56,11 +54,11 @@ public class WeatherData {
         this.rainFallProbability = rainFallProbability;
     }
 
-    public String getTimeStamp() {
+    public LocalDateTime getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(String timeStamp) {
+    public void setTimeStamp(LocalDateTime timeStamp) {
         this.timeStamp = timeStamp;
     }
 
