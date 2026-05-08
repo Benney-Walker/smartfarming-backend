@@ -18,7 +18,7 @@ public class PreparedData {
 
     private String lightIntensity;
 
-    private String rainFallPossibility;
+    private int rainFallPossibility;
 
     private LocalDateTime timeProcessed;
 
@@ -30,16 +30,14 @@ public class PreparedData {
     @JoinColumn
     private WeatherData weatherData;
 
-    private boolean isDecisionMade;
-
     @OneToOne(mappedBy = "preparedData")
     private ModelResponse modelResponse;
 
     public PreparedData() {}
 
     public PreparedData(String preparedDataId, String soilMoisture, String soilTemperature, String humidity,
-                        String lightIntensity, String rainFallPossibility, LocalDateTime timeProcessed,
-                        SensorData sensorData, WeatherData weatherData, boolean isDecisionMade) {
+                        String lightIntensity, int rainFallPossibility, LocalDateTime timeProcessed,
+                        SensorData sensorData, WeatherData weatherData) {
         this.preparedDataId = preparedDataId;
         this.soilMoisture = soilMoisture;
         this.soilTemperature = soilTemperature;
@@ -49,7 +47,6 @@ public class PreparedData {
         this.timeProcessed = timeProcessed;
         this.sensorData = sensorData;
         this.weatherData = weatherData;
-        this.isDecisionMade = isDecisionMade;
     }
 
     public String getPreparedDataId() {
@@ -92,11 +89,11 @@ public class PreparedData {
         this.lightIntensity = lightIntensity;
     }
 
-    public String getRainFallPossibility() {
+    public int getRainFallPossibility() {
         return rainFallPossibility;
     }
 
-    public void setRainFallPossibility(String rainFallPossibility) {
+    public void setRainFallPossibility(int rainFallPossibility) {
         this.rainFallPossibility = rainFallPossibility;
     }
 
@@ -122,14 +119,6 @@ public class PreparedData {
 
     public void setWeatherData(WeatherData weatherData) {
         this.weatherData = weatherData;
-    }
-
-    public boolean isDecisionMade() {
-        return isDecisionMade;
-    }
-
-    public void setDecisionMade(boolean decisionMade) {
-        isDecisionMade = decisionMade;
     }
 
     public ModelResponse getModelResponse() {
