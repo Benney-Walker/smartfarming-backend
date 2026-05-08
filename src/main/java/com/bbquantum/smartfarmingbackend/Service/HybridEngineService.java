@@ -1,6 +1,8 @@
 package com.bbquantum.smartfarmingbackend.Service;
 
 import com.bbquantum.smartfarmingbackend.DTO.HybridComDTO.PreparedDataHolder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -9,8 +11,11 @@ import java.util.Map;
 @Service
 public class HybridEngineService {
 
-    private final RestTemplate restTemplate = new RestTemplate();
-    private final String PYTHON_API_URL = "http://localhost:8000/predict";
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @Value("${hybrid.model.api.url}")
+    private String modelApi;
 
     public Map getIrrigationDecision(PreparedDataHolder data) {
 
@@ -23,9 +28,14 @@ public class HybridEngineService {
         );
 
         return restTemplate.postForObject(
-                PYTHON_API_URL,
+                modelApi,
                 request,
                 Map.class
         );
+    }
+
+    // Template
+    public String checkModelStatus() {
+        return "ONLINE";
     }
 }
