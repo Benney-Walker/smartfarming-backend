@@ -50,27 +50,37 @@ public class DecisionAndActionService {
         );
     }
 
-    public void updateActionDetails(ActionFeedBack feedBack) {
-        try {
-            IrrigationActions action = irrigationActionsRepo.findByActionId(feedBack.getActionId()).orElse(null);
-            if (action == null) {
-                System.out.println(feedBack.getActionId());
-                return;
-            }
-
-            action.setActionStatus(ActionStatus.valueOf(feedBack.getActionStatus()));
-            action.setMessage(feedBack.getMessage());
-            irrigationActionsRepo.save(action);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public InputResponse callEdgeModel(PreparedDataHolder data) {
 
         return null;
     }
 
-    public InputResponse callEdgeModel(PreparedDataHolder data) {
+    public void sendIrrigationCommands(InputResponse response, ModelResponse modelResponse) {
+        if (!isIrrigationNeeded(response.getDecision())) return;
 
-        return null;
+        String actionId = util.generateEntityId("IRRIGATION_ACTION");
+
+        try {
+
+            IrrigationActions storeActions = new IrrigationActions(
+                    actionId,
+                    response.getWaterQuantity(),
+                    LocalDateTime.now(),
+                    ActionStatus.PENDING,
+                    modelResponse
+            );
+
+            irrigationActionsRepo.save(storeActions);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        IrrigationAction command = new IrrigationAction(
+                actionId,
+                response.getWaterQuantity()
+        );
+
+        mqttService.sendCommand(command);
     }
 
     private boolean isIrrigationNeeded(String decision) {
