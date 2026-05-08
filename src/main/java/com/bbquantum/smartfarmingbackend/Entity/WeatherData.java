@@ -22,12 +22,10 @@ public class WeatherData {
 
     public WeatherData() {}
 
-    public WeatherData(String location, String rainFallProbability, String timeStamp, boolean isProcessed, PreparedData preparedData) {
+    public WeatherData(String location, int rainFallProbability, LocalDateTime timeStamp) {
         this.location = location;
         this.rainFallProbability = rainFallProbability;
         this.timeStamp = timeStamp;
-        this.isProcessed = isProcessed;
-        this.preparedData = preparedData;
     }
 
     public int getWeatherDataId() {
@@ -60,14 +58,6 @@ public class WeatherData {
 
     public void setTimeStamp(LocalDateTime timeStamp) {
         this.timeStamp = timeStamp;
-    }
-
-    public boolean isProcessed() {
-        return isProcessed;
-    }
-
-    public void setProcessed(boolean processed) {
-        isProcessed = processed;
     }
 
     public PreparedData getPreparedData() {
