@@ -10,7 +10,5 @@ import java.util.Optional;
 @Repository
 public interface PreparedDataRepo extends JpaRepository<PreparedData, Integer> {
 
-    Optional<PreparedData> findByIsDecisionMade(boolean isDecisionMade);
-
     Optional<PreparedData> findByPreparedDataId(String dataId);
 }
