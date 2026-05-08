@@ -1,5 +1,6 @@
 package com.bbquantum.smartfarmingbackend.Config;
 
+import com.bbquantum.smartfarmingbackend.Components.CustomAccessDeniedHandler;
 import com.bbquantum.smartfarmingbackend.Components.JwtAuthFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +25,9 @@ public class SecurityConfig {
 
     @Autowired
     private JwtAuthFilter jwtAuthFilter;
+
+    @Autowired
+    private CustomAccessDeniedHandler customAccessDeniedHandler;
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) {
@@ -67,6 +71,8 @@ public class SecurityConfig {
                 ).addFilterBefore(
                         jwtAuthFilter,
                 UsernamePasswordAuthenticationFilter.class
+                ).exceptionHandling(ex ->
+                        ex.accessDeniedHandler(customAccessDeniedHandler)
                 );
 
         return http.build();
