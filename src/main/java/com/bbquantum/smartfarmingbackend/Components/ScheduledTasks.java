@@ -92,6 +92,21 @@ public class ScheduledTasks {
 
             ModelResponse storedModelResponse = dataService.storeModelResponse(modelResponse, Model.CLOUD_MODEL);
 
+            DAService.sendIrrigationCommands(modelResponse, storedModelResponse);
+        }
+    }
+
+    @Scheduled(fixedRate = 7200000) //Starts every 2(7200000) hours
+    public void askForForecastData() {
+        System.out.println("Started");
+        List<ReceivedForcast> foreCastData = weatherService.getNextHoursForecast(2);
+
+        for (ReceivedForcast forecast : foreCastData) {
+            System.out.println("Location= " + forecast.getLocation());
+            System.out.println("Rain probability= " + forecast.getRainFallProbability());
+            System.out.println("Time stamp= " + forecast.getTimeStamp());
+
+            dataService.saveReceivedForecast(forecast);
         }
     }
 }
