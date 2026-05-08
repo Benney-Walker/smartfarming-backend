@@ -13,7 +13,7 @@ public class WeatherData {
 
     private String location;
 
-    private String rainFallProbability;
+    private int rainFallProbability;
 
     private String timeStamp;
 
@@ -48,11 +48,11 @@ public class WeatherData {
         this.location = location;
     }
 
-    public String getRainFallProbability() {
+    public int getRainFallProbability() {
         return rainFallProbability;
     }
 
-    public void setRainFallProbability(String rainFallProbability) {
+    public void setRainFallProbability(int rainFallProbability) {
         this.rainFallProbability = rainFallProbability;
     }
 
