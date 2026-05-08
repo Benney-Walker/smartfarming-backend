@@ -194,7 +194,7 @@ public class UserService {
 
     public ResponseEntity<?> getTotalUsers() {
         return ResponseEntity.ok(Map.of(
-                "totalUsers", usersRepo.count()
+                "message", usersRepo.count()
         ));
     }
 
