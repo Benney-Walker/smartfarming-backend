@@ -18,13 +18,11 @@ public class Fields {
     @Column(nullable = false)
     private String fieldLocation;
 
-    private String fieldSize;
-
     @Column(nullable = false)
     private LocalDateTime dateOfRegistration;
 
     @ManyToOne
-    @JoinColumn(name = "User_field")
+    @JoinColumn
     private Users user;
 
     @Enumerated(EnumType.STRING)
@@ -32,14 +30,12 @@ public class Fields {
 
     public Fields() {}
 
-    public Fields(String fieldId, String fieldName, String fieldLocation, String fieldSize, LocalDateTime dateOfRegistration, Users user, FieldStatus fieldStatus) {
+    public Fields(String fieldId, String fieldName, String fieldLocation, LocalDateTime dateOfRegistration, Users user) {
         this.fieldId = fieldId;
         this.fieldName = fieldName;
         this.fieldLocation = fieldLocation;
-        this.fieldSize = fieldSize;
         this.dateOfRegistration = dateOfRegistration;
         this.user = user;
-        this.fieldStatus = fieldStatus;
     }
 
     public String getFieldId() {
@@ -54,16 +50,16 @@ public class Fields {
         return fieldLocation;
     }
 
-    public String getFieldSize() {
-        return fieldSize;
-    }
-
     public LocalDateTime getDateOfRegistration() {
         return dateOfRegistration;
     }
 
     public Users getUser() {
         return user;
+    }
+
+    public void setFieldStatus(FieldStatus fieldStatus) {
+        this.fieldStatus = fieldStatus;
     }
 
     public FieldStatus getFieldStatus() {
