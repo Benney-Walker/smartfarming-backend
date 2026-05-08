@@ -1,6 +1,6 @@
 package com.bbquantum.smartfarmingbackend.DTO.MQTT;
 
-public class SensorData {
+public class ReceivedSensorData {
 
     private String farmId;
 
@@ -12,7 +12,7 @@ public class SensorData {
 
     private String lightIntensity;
 
-    public SensorData(String farmId, String soilMoisture, String soilTemperature, String humidity, String lightIntensity) {
+    public ReceivedSensorData(String farmId, String soilMoisture, String soilTemperature, String humidity, String lightIntensity) {
         this.farmId = farmId;
         this.soilMoisture = soilMoisture;
         this.soilTemperature = soilTemperature;
