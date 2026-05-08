@@ -18,6 +18,8 @@ public class IrrigationActions {
     @Enumerated(EnumType.STRING)
     private ActionStatus actionStatus;
 
+    private String feedBackMessage;
+
     @OneToOne(mappedBy = "action")
     private ModelResponse modelResponse;
 
@@ -62,6 +64,14 @@ public class IrrigationActions {
 
     public void setActionStatus(ActionStatus actionStatus) {
         this.actionStatus = actionStatus;
+    }
+
+    public String getFeedBackMessage() {
+        return feedBackMessage;
+    }
+
+    public void setFeedBackMessage(String feedBackMessage) {
+        this.feedBackMessage = feedBackMessage;
     }
 
     public ModelResponse getModelResponse() {
