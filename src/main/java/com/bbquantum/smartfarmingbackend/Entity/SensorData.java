@@ -12,7 +12,6 @@ public class SensorData {
     private long sensorDataId;
 
     @ManyToOne
-    @JoinColumn(name = "fieldId")
     private Fields field;
 
     @Column(nullable = false)
@@ -37,9 +36,8 @@ public class SensorData {
 
     public SensorData() {}
 
-    public SensorData(Fields field, String soilMoisture, String temperature, String humidity, String lightIntensity,
+    public SensorData(String soilMoisture, String temperature, String humidity, String lightIntensity,
                       LocalDateTime timeOfArrival, boolean isProcessed) {
-        this.field = field;
         this.soilMoisture = soilMoisture;
         this.temperature = temperature;
         this.humidity = humidity;
