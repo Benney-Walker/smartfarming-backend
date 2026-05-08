@@ -6,6 +6,7 @@ import com.bbquantum.smartfarmingbackend.Service.FieldService;
 import com.bbquantum.smartfarmingbackend.Service.HybridEngineService;
 import com.bbquantum.smartfarmingbackend.Service.UserService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,4 +30,10 @@ public class AdminController {
     public ResponseEntity<?> addNewField(@RequestBody AddNewField addNewField) {
         return fieldService.addNewField(addNewField);
     }
+
+    @GetMapping("/v1/load-all-fields")
+    public ResponseEntity<?> loadAllFields() {
+        return fieldService.loadAllFields();
+    }
+
 }
