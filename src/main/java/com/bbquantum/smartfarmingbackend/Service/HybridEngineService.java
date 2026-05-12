@@ -1,6 +1,6 @@
 package com.bbquantum.smartfarmingbackend.Service;
 
-import com.bbquantum.smartfarmingbackend.DTO.HybridComDTO.PreparedDataHolder;
+import com.bbquantum.smartfarmingbackend.DTO.HybridCom.PreparedDataHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
