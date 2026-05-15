@@ -61,6 +61,7 @@ public class UserService {
         user.setUserName(userName);
         user.setEmailAddress(emailAddress);
         user.setPhoneNumber(phoneNumber);
+        user.setUserStatus(UserStatus.ACTIVE);
         user.setDateOfRegistration(LocalDateTime.now());
         usersRepo.save(user);
 
