@@ -21,13 +21,13 @@ public class WebSocketService {
 
     public void sendActivity(ActivityMessage message) {
         messagingTemplate.convertAndSend(
-                "/topic/admin/activity", message
+                "/topic/admin/logs", message
         );
     }
 
     public void sendIrrigationActions(Action action) {
         messagingTemplate.convertAndSend(
-                "/topic/admin/action"
+                "/topic/admin/recent-command"
         );
     }
 
