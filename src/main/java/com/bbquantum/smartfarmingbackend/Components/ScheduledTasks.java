@@ -1,8 +1,8 @@
 package com.bbquantum.smartfarmingbackend.Components;
 
 import com.bbquantum.smartfarmingbackend.Contants.Model;
-import com.bbquantum.smartfarmingbackend.DTO.HybridComDTO.InputResponse;
-import com.bbquantum.smartfarmingbackend.DTO.HybridComDTO.PreparedDataHolder;
+import com.bbquantum.smartfarmingbackend.DTO.HybridCom.InputResponse;
+import com.bbquantum.smartfarmingbackend.DTO.HybridCom.PreparedDataHolder;
 import com.bbquantum.smartfarmingbackend.DTO.WeatherDTO.ReceivedForcast;
 import com.bbquantum.smartfarmingbackend.Entity.ModelResponse;
 import com.bbquantum.smartfarmingbackend.Entity.PreparedData;

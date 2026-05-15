@@ -1,4 +1,4 @@
-package com.bbquantum.smartfarmingbackend.DTO.HybridComDTO;
+package com.bbquantum.smartfarmingbackend.DTO.HybridCom;
 
 public class PreparedDataHolder {
     private String preparedDataId;
