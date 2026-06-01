@@ -33,7 +33,7 @@ public class ScheduledTasks {
     @Autowired
     private WeatherService weatherService;
 
-    @Scheduled(fixedRate = 60000) //Runs every 1 minutes
+    //@Scheduled(fixedRate = 60000) //Runs every 1 minutes
     public void prepareReceivedData() {
 
         // Unprocessed sensor data
@@ -51,7 +51,7 @@ public class ScheduledTasks {
         dataService.processRawData(sensorRecord, weatherData);
     }
 
-    @Scheduled(fixedRate = 240000) // sends data to model for prediction and decision every 4 minutes
+    //@Scheduled(fixedRate = 240000) // sends data to model for prediction and decision every 4 minutes
     public void askForIrrigationDecisions() {
         PreparedData data = null;
         if (data == null) return;
